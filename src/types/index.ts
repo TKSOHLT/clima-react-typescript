@@ -8,12 +8,12 @@ export type Country = {
     name: string
 }
 
-//!Esta es la peor forma de obtener el tipado en una petición:
-export type Weather = {
-    name: string,
-    main: {
-        temp: number,
-        temp_max: number,
-        temp_min: number
-    }
-}
+//!Esta es la peor forma de obtener el tipado en una petición (castear):
+// export type Weather = {
+//     name: string,
+//     main: {
+//         temp: number,
+//         temp_max: number,
+//         temp_min: number
+//     }
+// }

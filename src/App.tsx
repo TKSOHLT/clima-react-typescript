@@ -1,24 +1,25 @@
-import styles from "./App.module.css"; //Modulos de CSS 
+import styles from "./App.module.css"; //Modulos de CSS
+import Alert from "./components/Alert/Alert";
 import Form from "./components/Form/Form";
+import Spinner from "./components/Spinner/Spinner";
+import WeatherDetail from "./components/WeatherDetail/WeatherDetail";
 import useWeather from "./hooks/useWeather";
 
 function App() {
+  const { weather, hasWeatherData, loading, notFound, fetchWeather } = useWeather();
 
-  const {fetchWeather} = useWeather();
-
-  console.log(import.meta.env)
   return (
     <>
       <h1 className={styles.title}>Buscador de clima</h1>
 
       <div className={styles.container}>
-        <Form 
-          fetchWeather={fetchWeather}
-        />
-        <p>2</p>
+        <Form fetchWeather={fetchWeather} />
+        {loading && <Spinner />}
+        {hasWeatherData && <WeatherDetail weather={weather} />}
+        {notFound && <Alert>Ciudad no encontrada</Alert>}
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
