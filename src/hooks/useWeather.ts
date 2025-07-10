@@ -67,7 +67,7 @@ export default function useWeather() {
     setWeather(initialState);
     setNotFound(false);
     try {
-      const geoURl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`;
+      const geoURl = `https://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`;
       const { data } = await axios(geoURl); //Por defecto al hacer axios() es como hacer axios.get()...
 
       if(!data[0]){
